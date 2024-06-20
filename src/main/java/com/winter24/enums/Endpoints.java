@@ -24,7 +24,5 @@ public enum Endpoints {
         this.menu = menu;
     }
 
-    public String getEndpoint() {
-        return menu;
-    }
+
 }

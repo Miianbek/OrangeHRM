@@ -21,23 +21,42 @@ public abstract class BasePage {
 
 
 
-    @FindBy(xpath = "//input[@name='username']")
+
+
+
+//    @FindBy(xpath = "//input[@name='username']")
+//    public WebElement userNameInput;
+//
+//    @FindBy(xpath = "//input[@name='password']")
+//    public WebElement passwordInput;
+//
+//    @FindBy(xpath = "//button[@type='submit']")
+//
+//    public WebElement loginBtn;
+//
+//    // Метод для открытия соответствующего эндпоинта
+//    public void openEndpoint1(Endpoints endpoint) {
+//        browserHelper.open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+//        webElementActions.sendKeys(userNameInput, "Admin")
+//                .sendKeys(passwordInput, "admin123")
+//                .click(loginBtn);
+//        browserHelper.open(ConfigReader.getValue("baseDevURL") + endpoint.getEndpoint());
+//
+//    }
+    @FindBy(xpath = "//input[@placeholder='Username']")
     public WebElement userNameInput;
 
-    @FindBy(xpath = "//input[@name='password']")
+    @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement passwordInput;
 
     @FindBy(xpath = "//button[@type='submit']")
 
     public WebElement loginBtn;
-
-    // Метод для открытия соответствующего эндпоинта
-    public void openEndpoint1(Endpoints endpoint) {
-        browserHelper.open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    public BasePage fillUpUserPassword(String userName, String password) {
         webElementActions.sendKeys(userNameInput, "Admin")
                 .sendKeys(passwordInput, "admin123")
                 .click(loginBtn);
-        browserHelper.open(ConfigReader.getValue("baseDevURL") + endpoint.getEndpoint());
 
+        return this;
     }
 }

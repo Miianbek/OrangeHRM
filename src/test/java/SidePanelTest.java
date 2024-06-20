@@ -7,17 +7,16 @@ import org.testng.annotations.Test;
 
 public class SidePanelTest extends BaseTest{
     @Test
-    public void selectCategoryTest() {
+    public void selectSidePanelTest() {
         browserHelper.open("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
 
         // открывается окно для введения парля и логина
-        orangeHRMpages.getSidePanelPage().fillUpUserPassword("Admin", "admin123");
-        WebElement loginButton = driver.findElement(By.cssSelector("button.oxd-button.oxd-button--medium.oxd-button--main.orangehrm-login-button"));
-        loginButton.click();
+//        orangeHRMpages.getSidePanelPage().fillUpUserPassword("Admin", "admin123");
+        orangeHRMpages.getSidePanelPage().fillUpUserPassword("Admin","admin123");
 
 
         webElementActions.pause(5); // ждем 5 секунд
-        orangeHRMpages.getSidePanelPage().chooseSidebarMenu(Endpoints.CLAIM); // здесь указать нужную вкладку
+        orangeHRMpages.getSidePanelPage().chooseSidebarMenu(Endpoints.DIRECTORY); // здесь указать нужную вкладку
         webElementActions.pause(5);
 
     }
